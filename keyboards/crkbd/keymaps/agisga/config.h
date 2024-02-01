@@ -2,14 +2,9 @@
 
 #ifdef CONVERT_TO_BLOK
     // boardsource BLOK code
-
     #define EE_HANDS
-
-    // RGB stuff
-    #define RGBLIGHT_SPLIT
-    //#define RGB_MATRIX_ENABLE  // FIXME: for some reason RGB_MATRIX_ENABLE doesn't work when enabled from here, but only works when enabled from rules.mk
 #else
-    // Pro Micro code, no RGB
+    // Pro Micro code
 
     // For some reason this is needed to make the keyboard halves communicate when WS-C controllers are used (Elite-C clones?)
     #define SPLIT_USB_DETECT

@@ -1,6 +1,3 @@
-# comment/uncomment when needed:
-#BOOTLOADER = atmel-dfu
-
 RGBLIGHT_ENABLE = no
 
 # comment/uncomment when needed:

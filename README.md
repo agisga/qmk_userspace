@@ -1,8 +1,28 @@
-Build and flash for crkbd with Blok controllers:
+## Build and flash for crkbd with Blok controllers
 
 ```
 qmk flash -c  -kb crkbd -km agisga -e CONVERT_TO=blok
 ```
+
+## Build and flash for crkbd with WS-C controllers (Elite-C clone)
+
+First, in `users/agisga/rules.mk` set
+
+```
+DYNAMIC_MACRO_ENABLE = no
+```
+
+(not sure why it doesn't work with dynamic macros).
+
+Also, adjust `rules.mk` in the `keyboards/crkbd/keymaps/agisga` directory, depending on if OLED and RGB is needed or not.
+
+Then build and flash with
+
+```
+make clean crkbd:agisga:dfu
+```
+
+This will build and flash twice *automatically* (i.e., once for each keyboard half?), and you need to plug the second half in after the first half is flashed.
 
 
 -----------------------------------------------------
