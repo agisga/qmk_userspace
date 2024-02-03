@@ -9,7 +9,7 @@
 #define _NAV 2
 #define _NUM 3
 #define _FUN 4
-//#define _MOUSE 5
+#define _MOUSE 5
 
 #define WIN_PST C(KC_V)
 #define WIN_CPY C(KC_C)
@@ -42,15 +42,15 @@
 
 #define _____________________NAV_L1______________________ KC_NO, KC_PGUP, KC_HOME, KC_UP, KC_END, KC_INS
 #define _____________________NAV_L2______________________ KC_NO, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_TAB
-#define _____________________NAV_L3______________________ KC_NO, KC_MUTE, KC_VOLD, KC_VOLU, KC_BSPC, KC_DEL
+#define _____________________NAV_L3______________________ KC_NO, TO(_MOUSE), KC_VOLD, KC_VOLU, KC_BSPC, KC_DEL
 
 #define _____________________NAV_R1______________________ KC_FIFTEENSTARS, RALT(KC_Q), RALT(KC_Y), RALT(KC_S), RALT(KC_P), KC_NO
 #define _____________________NAV_R2______________________ KC_TODO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO
 #define _____________________NAV_R3______________________ KC_ELLIPSIS, KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA, KC_NO
 
 #define _______NAV_LT_______ KC_APP, KC_ENT, KC_TRNS
-#define _______NAV_RT_______ KC_TRNS, KC_ESC, QK_REPEAT_KEY
-#define _______NAV_REVIUNG_T_______ KC_APP, KC_ENT, KC_TRNS, KC_ESC, QK_REPEAT_KEY
+#define _______NAV_RT_______ KC_TRNS, KC_MUTE, KC_ESC
+#define _______NAV_REVIUNG_T_______ KC_APP, KC_ENT, KC_TRNS, KC_MUTE, KC_ESC
 
 
 #define _____________________NUM_L1______________________ KC_NO, C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_TAB, KC_APP, KC_ESC
@@ -83,18 +83,18 @@
 #define _______FUN_REVIUNG_T_______ QK_DYNAMIC_MACRO_RECORD_STOP, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_1, KC_NO, KC_TRNS
 
 
-// TODO: enable mouse layer later --> use tap-dance to make the app switches thumb key to enable the mouse layer on hold and win-tab on double tap
-//#define _____________________MOUSE_L1______________________ KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, KC_NO
-//#define _____________________MOUSE_L2______________________ KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_NO
-//#define _____________________MOUSE_L3______________________ WIN_UND, WIN_CUT, WIN_CPY, WIN_PST, KC_DEL
-//#define _____________________MOUSE_LT______________________ KC_BTN3, KC_BTN1, KC_BTN2
-//
-//#define _____________________MOUSE_R1______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
-//#define _____________________MOUSE_R2______________________ KC_NO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI
-//#define _____________________MOUSE_R3______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
-//#define _____________________MOUSE_RT______________________ KC_NO, KC_NO, KC_NO
-//
-//#define _____________________MOUSE_REVIUNG_T______________________ KC_BTN3, KC_BTN1, KC_BTN2, KC_NO, KC_NO
+#define _____________________MOUSE_L1______________________ KC_NO, KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, TO(_COLEMAK)
+#define _____________________MOUSE_L2______________________ KC_NO, KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_NO
+#define _____________________MOUSE_L3______________________ KC_NO, KC_TRNS, WIN_CUT, WIN_CPY, WIN_PST, KC_DEL
+
+#define _____________________MOUSE_R1______________________ KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC, KC_NO
+#define _____________________MOUSE_R2______________________ KC_EQL, KC_4, KC_5, KC_6, KC_MINS, KC_NO
+#define _____________________MOUSE_R3______________________ KC_BSLS, KC_1, KC_2, KC_3, KC_GRV, KC_NO
+
+#define _______MOUSE_LT_______ KC_BTN3, KC_BTN1, KC_BTN2
+#define _______MOUSE_RT_______ KC_UNDS, KC_0, QK_REPEAT_KEY
+#define _______MOUSE_REVIUNG_T_______ KC_BTN3, KC_BTN1, KC_BTN2, KC_0, QK_REPEAT_KEY
+
 
 
 // Layout wrappers

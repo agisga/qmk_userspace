@@ -36,28 +36,25 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     PG_TAB,
     TD_ESC,
-    VB_DEL,
     JL_BSPC,
-    KM_ENT,
     M3_CBSPC,
+    XCV_ENT,
     ZXCV_QWERTY,
 };
 const uint16_t PROGMEM pg_combo[] = {KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM td_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
-const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM jl_combo[] = {KC_J, KC_L, COMBO_END};
 const uint16_t PROGMEM hn_combo[] = {KC_H, LSFT_T(KC_N), COMBO_END};
-const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
 const uint16_t PROGMEM m3_combo[] = {KC_M, KC_COMMA, KC_DOT, COMBO_END};
+const uint16_t PROGMEM xcv_combo[] = {KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 // TODO: thumb or other combos for when the third thumb key is missing
 combo_t key_combos[] = {
   [PG_TAB]  = COMBO(pg_combo, KC_TAB),
   [TD_ESC]  = COMBO(td_combo, KC_ESC),
-  [VB_DEL] = COMBO(vb_combo, KC_DEL),
   [JL_BSPC]  = COMBO(jl_combo, KC_BSPC),
-  [KM_ENT] = COMBO(km_combo, KC_ENT),
   [M3_CBSPC]  = COMBO(m3_combo, LCTL(KC_BSPC)),
+  [XCV_ENT] = COMBO(xcv_combo, KC_ENT),
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
 };
 #endif

@@ -1,3 +1,4 @@
+// For homerow mods
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY  /* Use per key tapping term */
@@ -9,7 +10,7 @@
   #define EXTRA_SHORT_COMBOS
 #endif
 
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat
 #define QUICK_TAP_TERM 0
 
 // Auto Shift
@@ -17,7 +18,7 @@
 #define AUTO_SHIFT_TIMEOUT 200
 #define AUTO_SHIFT_NO_SETUP
 
-// Mouse key speed and acceleration.
+// Mouse key speed and acceleration
 #undef MOUSEKEY_DELAY
 #define MOUSEKEY_DELAY          0
 #undef MOUSEKEY_INTERVAL
