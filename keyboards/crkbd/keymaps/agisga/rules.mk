@@ -11,5 +11,6 @@ SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 # for saving extra firmware size (https://github.com/qmk/qmk_firmware/blob/master/docs/squeezing_avr.md):
 #MAGIC_ENABLE = no
-#CONSOLE_ENABLE = no
-#COMMAND_ENABLE = no
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+# NOTE: for some reason my crkbd with WS-C controllers doesn't work when these two options are set to 'yes' and at the same time dynamic macros are enabled...
