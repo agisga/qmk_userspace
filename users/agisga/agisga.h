@@ -19,7 +19,7 @@
 
 #define _______BASE_LT_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC)
 #define _______BASE_RT_______ LT(_NAV,KC_QUOT), OSM(MOD_LSFT), OSL(_FUN)
-#define _______REVIUNG_T_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), OSL(_FUN)
+#define _______BASE_REVIUNG_T_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), OSL(_FUN)
 
 
 #define _____________________COLEMAK_L1_____________________ KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G
