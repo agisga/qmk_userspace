@@ -42,7 +42,7 @@
 
 #define _____________________NAV_L1______________________ KC_NO, KC_PGUP, KC_HOME, KC_UP, KC_END, KC_INS
 #define _____________________NAV_L2______________________ KC_NO, KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_TAB
-#define _____________________NAV_L3______________________ KC_ESC, KC_APP, LCTL(KC_BSPC), KC_BSPC, KC_DEL
+#define _____________________NAV_L3______________________ KC_ESC, KC_ESC, KC_APP, LCTL(KC_BSPC), KC_BSPC, KC_DEL
 
 #define _____________________NAV_R1______________________ KC_FIFTEENSTARS, RALT(KC_Q), RALT(KC_Y), RALT(KC_S), RALT(KC_P), KC_NO
 #define _____________________NAV_R2______________________ KC_TODO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, KC_NO
