@@ -35,11 +35,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ENABLE
 enum combos {
     ZXCV_QWERTY,
+    MPUNCT_MOUSE,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM mpunct_combo[] = {KC_M, KC_COMM, KC_DOT, KC_SLSH, COMBO_END};
 // TODO: thumb or other combos for when the third thumb key is missing
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
+  [MPUNCT_MOUSE] = COMBO(mpunct_combo, TO(_MOUSE)),
 };
 #endif
 //---
