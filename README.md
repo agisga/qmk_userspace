@@ -20,6 +20,19 @@ Somehow on my system this will build and flash twice *automatically* (i.e., once
 make clean reviung/reviung41:agisga:dfu
 ```
 
+## Build and flash for reviung34 with Elite-C
+
+```
+make clean reviung/reviung34:agisga:dfu
+```
+
+## Build and flash ferris sweep with pro-micro
+
+```
+make ferris/sweep:agisga:avrdude-split-left
+make ferris/sweep:agisga:avrdude-split-right
+```
+
 -----------------------------------------------------
 
 
