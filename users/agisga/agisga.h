@@ -105,19 +105,19 @@
   #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #endif
-#define _____________________FUN_L3_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+#define _____________________FUN_L3_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
 #define _____________________FUN_L3______________________ KC_NO, _____________________FUN_L3_5U______________________
 
 #define _____________________FUN_R1_5U______________________ KC_PSCR, KC_F7, KC_F8, KC_F9, KC_F12
-#define _____________________FUN_R2_5U______________________ QK_DYNAMIC_MACRO_PLAY_2, KC_F4, KC_F5, KC_F6, KC_F11
-#define _____________________FUN_R3_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_2, KC_F1, KC_F2, KC_F3, KC_F10
+#define _____________________FUN_R2_5U______________________ KC_NO, KC_F4, KC_F5, KC_F6, KC_F11
+#define _____________________FUN_R3_5U______________________ KC_NO, KC_F1, KC_F2, KC_F3, KC_F10
 #define _____________________FUN_R1______________________ _____________________FUN_R1_5U______________________, KC_NO
 #define _____________________FUN_R2______________________ _____________________FUN_R2_5U______________________, KC_NO
 #define _____________________FUN_R3______________________ _____________________FUN_R3_5U______________________, KC_NO
 
-#define _______FUN_LT_2U_______ QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_1
+#define _______FUN_LT_2U_______ KC_NO, KC_TRNS
 #define _______FUN_RT_2U_______ KC_TRNS, KC_TRNS
-#define _______FUN_LT_______ QK_DYNAMIC_MACRO_RECORD_STOP, _______FUN_LT_2U_______
+#define _______FUN_LT_______ KC_NO, _______FUN_LT_2U_______
 #define _______FUN_RT_______ _______FUN_RT_2U_______, KC_TRNS
 #define _______FUN_REVIUNG_T_______ QK_DYNAMIC_MACRO_RECORD_STOP, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_1, KC_TRNS, KC_TRNS
 
