@@ -70,9 +70,9 @@
 
 #define _______NAV_LT_2U_______ KC_ENT, KC_TRNS
 #define _______NAV_RT_2U_______ KC_TRNS, MO(_FUN)
-#define _______NAV_LT_______ KC_NO, _______NAV_LT_2U_______
-#define _______NAV_RT_______ _______NAV_RT_2U_______, KC_NO
-#define _______NAV_REVIUNG_T_______ KC_NO, KC_ENT, KC_TRNS, MO(_FUN), KC_NO
+#define _______NAV_LT_______ KC_TRNS, _______NAV_LT_2U_______
+#define _______NAV_RT_______ _______NAV_RT_2U_______, QK_REPEAT_KEY
+#define _______NAV_REVIUNG_T_______ KC_TRNS, KC_ENT, KC_TRNS, MO(_FUN), QK_REPEAT_KEY
 
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
