@@ -36,13 +36,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     ZXCV_QWERTY,
     MPUNCT_MOUSE,
+    WF_ALTAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM mpunct_combo[] = {KC_M, KC_COMM, KC_DOT, KC_SLSH, COMBO_END};
-// TODO: thumb or other combos for when the third thumb key is missing
+const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
   [MPUNCT_MOUSE] = COMBO(mpunct_combo, TO(_MOUSE)),
+  [WF_ALTAB] = COMBO(wf_combo, KC_AT_SPECIAL),
 };
 #endif
 //---
@@ -162,65 +164,22 @@ bool oled_task_user(void) {
 // + process records
 //-------------------------------
 
-//--- for "super-alt-tab"
-bool is_alt_tab_active = false;
-uint16_t alt_tab_timer = 0;
-
-void matrix_scan_user(void) {
-  if (is_alt_tab_active) {
-    if (timer_elapsed(alt_tab_timer) > 1000) {
-      unregister_code(KC_LALT);
-      is_alt_tab_active = false;
-    }
-  }
-}
-//---
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
     case KC_AT_SPECIAL:
         if (record->event.pressed) {
-            alt_tab_timer = timer_read();
-            if(!is_alt_tab_active) {
-                register_code(KC_LALT);
-                is_alt_tab_active = true;
-            }
-            register_code(KC_TAB);
+            layer_on(_NAV);
+            register_code(KC_LALT);
+            tap_code(KC_TAB);
         } else {
-            unregister_code(KC_TAB);
-        }
-        break;
-
-    case KC_AST_SPECIAL:
-        if (record->event.pressed) {
-            alt_tab_timer = timer_read();
-            if(!is_alt_tab_active) {
-                register_code(KC_LALT);
-                is_alt_tab_active = true;
-            }
-            register_code(KC_LSFT);
-            register_code(KC_TAB);
-        } else {
-            unregister_code(KC_TAB);
-            unregister_code(KC_LSFT);
+            unregister_code(KC_LALT);
+            layer_off(_NAV);
         }
         break;
 
     case KC_ELLIPSIS:
       if (record->event.pressed) {
           SEND_STRING("...");
-      }
-      break;
-
-    case KC_LEFTARR:
-      if (record->event.pressed) {
-          SEND_STRING("<-");
-      }
-      break;
-
-    case KC_RIGHTARR:
-      if (record->event.pressed) {
-          SEND_STRING("->");
       }
       break;
 
@@ -245,12 +204,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_AUTOCLOS_QUOTE:
       if (record->event.pressed) {
           SEND_STRING("\"\"" SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_AUTOCLOS_ANGLEBRA:
-      if (record->event.pressed) {
-          SEND_STRING("<>" SS_TAP(X_LEFT));
       }
       break;
 
