@@ -209,25 +209,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case KC_COLONQ:
       if (record->event.pressed) {
-          SEND_STRING(":q");
+          SEND_STRING(SS_TAP(X_ESC) ":q");
       }
       break;
 
     case KC_COLONQEX:
       if (record->event.pressed) {
-          SEND_STRING(":q!");
+          SEND_STRING(SS_TAP(X_ESC) ":q!");
       }
       break;
 
     case KC_COLONWQ:
       if (record->event.pressed) {
-          SEND_STRING(":wq");
+          SEND_STRING(SS_TAP(X_ESC) ":wq");
       }
       break;
 
     case KC_COLONW:
       if (record->event.pressed) {
-          SEND_STRING(":w");
+          SEND_STRING(SS_TAP(X_ESC) ":w");
       }
       break;
 
@@ -253,7 +253,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case KC_TABEDIT:
       if (record->event.pressed) {
-          SEND_STRING(":tabedit");
+          SEND_STRING(SS_TAP(X_ESC) ":tabedit");
       }
       break;
   }
