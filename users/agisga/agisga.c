@@ -18,7 +18,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LALT_T(KC_I):
             return 300;
         case LT(_NAV,KC_SPC):
-            return 190;
+            return 240;
         case LT(_NAV,KC_QUOT):
             return 190;
         default:
