@@ -20,8 +20,8 @@
 #define _______BASE_LT_2U_______ OSL(_NUM), LT(_NAV,KC_SPC)
 #define _______BASE_RT_2U_______ LT(_NAV,KC_QUOT), OSM(MOD_LSFT)
 #define _______BASE_LT_______ KC_AT_SPECIAL, _______BASE_LT_2U_______
-#define _______BASE_RT_______ _______BASE_RT_2U_______, OSL(_FUN)
-#define _______BASE_REVIUNG_T_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), OSL(_FUN)
+#define _______BASE_RT_______ _______BASE_RT_2U_______, QK_REPEAT_KEY
+#define _______BASE_REVIUNG_T_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), QK_REPEAT_KEY
 
 
 #define _____________________COLEMAK_L1_5U_____________________ KC_Q, KC_W, KC_F, KC_P, KC_G
@@ -91,9 +91,9 @@
 
 #define _______NUM_LT_2U_______ KC_TRNS, KC_SPC
 #define _______NUM_RT_2U_______ KC_UNDS, KC_0
-#define _______NUM_LT_______ QK_REPEAT_KEY, _______NUM_LT_2U_______
+#define _______NUM_LT_______ KC_TRNS, _______NUM_LT_2U_______
 #define _______NUM_RT_______ _______NUM_RT_2U_______, QK_REPEAT_KEY
-#define _______NUM_REVIUNG_T_______ QK_REPEAT_KEY, KC_TRNS, KC_UNDS, KC_0, QK_REPEAT_KEY
+#define _______NUM_REVIUNG_T_______ KC_TRNS, KC_TRNS, KC_UNDS, KC_0, QK_REPEAT_KEY
 
 
 #define _____________________FUN_L1_5U______________________ KC_COLONQ, KC_COLONW, KC_COLONWQ, KC_COLONQEX, KC_TABEDIT
@@ -109,7 +109,7 @@
 #define _____________________FUN_L3______________________ KC_NO, _____________________FUN_L3_5U______________________
 
 #define _____________________FUN_R1_5U______________________ KC_PSCR, KC_F7, KC_F8, KC_F9, KC_F12
-#define _____________________FUN_R2_5U______________________ KC_NO, KC_F4, KC_F5, KC_F6, KC_F11
+#define _____________________FUN_R2_5U______________________ A(KC_F4), KC_F4, KC_F5, KC_F6, KC_F11
 #define _____________________FUN_R3_5U______________________ KC_NO, KC_F1, KC_F2, KC_F3, KC_F10
 #define _____________________FUN_R1______________________ _____________________FUN_R1_5U______________________, KC_NO
 #define _____________________FUN_R2______________________ _____________________FUN_R2_5U______________________, KC_NO
@@ -118,8 +118,8 @@
 #define _______FUN_LT_2U_______ KC_NO, KC_TRNS
 #define _______FUN_RT_2U_______ KC_TRNS, KC_TRNS
 #define _______FUN_LT_______ KC_NO, _______FUN_LT_2U_______
-#define _______FUN_RT_______ _______FUN_RT_2U_______, KC_TRNS
-#define _______FUN_REVIUNG_T_______ QK_DYNAMIC_MACRO_RECORD_STOP, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_1, KC_TRNS, KC_TRNS
+#define _______FUN_RT_______ _______FUN_RT_2U_______, KC_NO
+#define _______FUN_REVIUNG_T_______ KC_NO, KC_NO, KC_TRNS, KC_TRNS, KC_NO
 
 
 #define _____________________MOUSE_L1_5U______________________ KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, TO(_COLEMAK)
