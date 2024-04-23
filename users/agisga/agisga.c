@@ -207,30 +207,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_COLONQ:
-      if (record->event.pressed) {
-          SEND_STRING(SS_TAP(X_ESC) ":q");
-      }
-      break;
-
-    case KC_COLONQEX:
-      if (record->event.pressed) {
-          SEND_STRING(SS_TAP(X_ESC) ":q!");
-      }
-      break;
-
-    case KC_COLONWQ:
-      if (record->event.pressed) {
-          SEND_STRING(SS_TAP(X_ESC) ":wq");
-      }
-      break;
-
-    case KC_COLONW:
-      if (record->event.pressed) {
-          SEND_STRING(SS_TAP(X_ESC) ":w");
-      }
-      break;
-
     case KC_DOTSPC:
       if (record->event.pressed) {
           tap_code(KC_DOT);
@@ -248,12 +224,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_TODO:
       if (record->event.pressed) {
           SEND_STRING("TODO ");
-      }
-      break;
-
-    case KC_TABEDIT:
-      if (record->event.pressed) {
-          SEND_STRING(SS_TAP(X_ESC) ":tabedit");
       }
       break;
   }

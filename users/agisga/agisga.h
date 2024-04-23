@@ -96,7 +96,7 @@
 #define _______NUM_REVIUNG_T_______ KC_TRNS, KC_TRNS, KC_UNDS, KC_0, QK_REPEAT_KEY
 
 
-#define _____________________FUN_L1_5U______________________ KC_COLONQ, KC_COLONW, KC_COLONWQ, KC_COLONQEX, KC_TABEDIT
+#define _____________________FUN_L1_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
 #define _____________________FUN_L1______________________ KC_NO, _____________________FUN_L1_5U______________________
 #if defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)
   #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, RGB_RMOD, RGB_MOD, RGB_TOG
@@ -105,7 +105,7 @@
   #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #endif
-#define _____________________FUN_L3_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
+#define _____________________FUN_L3_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
 #define _____________________FUN_L3______________________ KC_NO, _____________________FUN_L3_5U______________________
 
 #define _____________________FUN_R1_5U______________________ KC_PSCR, KC_F7, KC_F8, KC_F9, KC_F12
