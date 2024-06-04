@@ -37,14 +37,23 @@ enum combos {
     ZXCV_QWERTY,
     MPUNCT_MOUSE,
     WF_ALTAB,
+    COMMADOT_BSPC,
+    MCOMMADOT_BSPC,
+    XC_TAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM mpunct_combo[] = {KC_M, KC_COMM, KC_DOT, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM mcommadot_combo[] = {KC_M, KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 combo_t key_combos[] = {
-  [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
-  [MPUNCT_MOUSE] = COMBO(mpunct_combo, TO(_MOUSE)),
+  [ZXCV_QWERTY] = COMBO(zxcv_combo, TO(_MOUSE)),
+  [MPUNCT_MOUSE] = COMBO(mpunct_combo, TG(_QWERTY)),
   [WF_ALTAB] = COMBO(wf_combo, KC_AT_SPECIAL),
+  [COMMADOT_BSPC] = COMBO(commadot_combo, KC_BSPC),
+  [MCOMMADOT_BSPC] = COMBO(mcommadot_combo, LCTL(KC_BSPC)),
+  [XC_TAB] = COMBO(xc_combo, KC_TAB),
 };
 #endif
 //---
