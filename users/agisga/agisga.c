@@ -35,24 +35,24 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ENABLE
 enum combos {
     ZXCV_QWERTY,
-    MPUNCT_MOUSE,
+    QWFP_MOUSE,
     WF_ALTAB,
-    COMMADOT_BSPC,
-    MCOMMADOT_BSPC,
+    COMMADOT_SCLN,
+    UY_COLN,
     XC_TAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM mpunct_combo[] = {KC_M, KC_COMM, KC_DOT, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM qwfp_combo[] = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM mcommadot_combo[] = {KC_M, KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 combo_t key_combos[] = {
-  [ZXCV_QWERTY] = COMBO(zxcv_combo, TO(_MOUSE)),
-  [MPUNCT_MOUSE] = COMBO(mpunct_combo, TG(_QWERTY)),
+  [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
+  [QWFP_MOUSE] = COMBO(qwfp_combo, TO(_MOUSE)),
   [WF_ALTAB] = COMBO(wf_combo, KC_AT_SPECIAL),
-  [COMMADOT_BSPC] = COMBO(commadot_combo, KC_BSPC),
-  [MCOMMADOT_BSPC] = COMBO(mcommadot_combo, LCTL(KC_BSPC)),
+  [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
+  [UY_COLN] = COMBO(uy_combo, KC_COLN),
   [XC_TAB] = COMBO(xc_combo, KC_TAB),
 };
 #endif
@@ -185,12 +185,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_off(_NAV);
         }
         break;
-
-    case KC_ELLIPSIS:
-      if (record->event.pressed) {
-          SEND_STRING("...");
-      }
-      break;
 
     case KC_AUTOCLOS_PAREN:
       if (record->event.pressed) {

@@ -19,9 +19,9 @@
 
 #define _______BASE_LT_2U_______ OSL(_NUM), LT(_NAV,KC_SPC)
 #define _______BASE_RT_2U_______ LT(_NAV,KC_QUOT), OSM(MOD_LSFT)
-#define _______BASE_LT_______ KC_AT_SPECIAL, _______BASE_LT_2U_______
+#define _______BASE_LT_______ KC_BTN1, _______BASE_LT_2U_______
 #define _______BASE_RT_______ _______BASE_RT_2U_______, QK_REPEAT_KEY
-#define _______BASE_REVIUNG_T_______ KC_AT_SPECIAL, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), QK_REPEAT_KEY
+#define _______BASE_REVIUNG_T_______ KC_BTN1, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), QK_REPEAT_KEY
 
 
 #define _____________________COLEMAK_L1_5U_____________________ KC_Q, KC_W, KC_F, KC_P, KC_G
@@ -31,7 +31,7 @@
 #define _____________________COLEMAK_L2_____________________ KC_ESC, _____________________COLEMAK_L2_5U_____________________
 #define _____________________COLEMAK_L3_____________________ KC_DEL, _____________________COLEMAK_L3_5U_____________________
 
-#define _____________________COLEMAK_R1_5U____________________ KC_J, KC_L, KC_U, KC_Y, KC_SCLN
+#define _____________________COLEMAK_R1_5U____________________ KC_J, KC_L, KC_U, KC_Y, KC_BSPC
 #define _____________________COLEMAK_R2_5U____________________ KC_H, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O)
 #define _____________________COLEMAK_R3_5U____________________ KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH
 #define _____________________COLEMAK_R1_____________________ _____________________COLEMAK_R1_5U____________________, KC_BSPC
@@ -63,7 +63,7 @@
 
 #define _____________________NAV_R1_5U______________________ KC_FIFTEENSTARS, RALT(KC_Q), RALT(KC_Y), RALT(KC_S), RALT(KC_P)
 #define _____________________NAV_R2_5U______________________ KC_TODO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI
-#define _____________________NAV_R3_5U______________________ KC_ELLIPSIS, KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA
+#define _____________________NAV_R3_5U______________________ KC_DQT, KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA
 #define _____________________NAV_R1______________________ _____________________NAV_R1_5U______________________, KC_NO
 #define _____________________NAV_R2______________________ _____________________NAV_R2_5U______________________, KC_NO
 #define _____________________NAV_R3______________________ _____________________NAV_R3_5U______________________, KC_NO
@@ -92,8 +92,8 @@
 #define _______NUM_LT_2U_______ KC_TRNS, KC_SPC
 #define _______NUM_RT_2U_______ KC_UNDS, KC_0
 #define _______NUM_LT_______ KC_TRNS, _______NUM_LT_2U_______
-#define _______NUM_RT_______ _______NUM_RT_2U_______, QK_REPEAT_KEY
-#define _______NUM_REVIUNG_T_______ KC_TRNS, KC_TRNS, KC_UNDS, KC_0, QK_REPEAT_KEY
+#define _______NUM_RT_______ _______NUM_RT_2U_______, KC_SCLN
+#define _______NUM_REVIUNG_T_______ KC_TRNS, KC_TRNS, KC_UNDS, KC_0, KC_SCLN
 
 
 #define _____________________FUN_L1_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
