@@ -1,0 +1,4 @@
+- VIA compatible firmware (.hex file) is available at <https://github.com/npspears/VIA-Firmware/tree/main/plexus80> under an MIT license. It is additionally backed up in this repository.
+- The .hex file can be flashed from command line using `dfu-programmer`, as described here: <https://morphykuffour.github.io/linux/qmk/keyboards/dfu-programmer/2022/07/29/Flashing-QMK-hex-files-on-linux.html>
+- Subsequently the keymap can be modified from the VIA GUI. Note that "Show Design Tab" needs to be enabled in VIA. Additionally, to load the npspears' .hex file from the Design tab, enable "Use V2 definitions" toggle.
+- A saved layout from VIA will be added to this repo in this directory.
