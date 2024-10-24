@@ -10,4 +10,5 @@ enum custom_keycodes {
   KC_DOTSPC,
   KC_FIFTEENSTARS,
   KC_TODO,
+  KC_TH,
 };

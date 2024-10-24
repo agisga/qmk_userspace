@@ -19,7 +19,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LT(_NAV,KC_SPC):
             return 240;
-        case LT(_NAV,KC_QUOT):
+        case LT(_NAV,KC_TH):
             return 190;
         default:
             return TAPPING_TERM;
@@ -39,7 +39,7 @@ enum combos {
     WF_ALTAB,
     COMMADOT_SCLN,
     UY_COLN,
-    XC_TAB,
+    XC_ENT,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM qwfp_combo[] = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
@@ -53,7 +53,7 @@ combo_t key_combos[] = {
   [WF_ALTAB] = COMBO(wf_combo, KC_AT_SPECIAL),
   [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
   [UY_COLN] = COMBO(uy_combo, KC_COLN),
-  [XC_TAB] = COMBO(xc_combo, KC_TAB),
+  [XC_ENT] = COMBO(xc_combo, KC_ENT),
 };
 #endif
 //---
@@ -227,6 +227,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_TODO:
       if (record->event.pressed) {
           SEND_STRING("TODO ");
+      }
+      break;
+
+    case LT(_NAV,KC_TH):
+      // intercepting hold-tap (https://docs.qmk.fm/mod_tap#changing-tap-function)
+      if (record->tap.count && record->event.pressed) {
+        tap_code16(KC_T);
+        tap_code16(KC_H);  // Send th on tap
+        return false;      // Return false to ignore further processing of key
       }
       break;
   }
