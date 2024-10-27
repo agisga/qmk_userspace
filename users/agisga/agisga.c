@@ -19,7 +19,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LT(_NAV,KC_SPC):
             return 240;
-        case LT(_NAV,KC_TH):
+        case LT(_NAV,KC_QUOT):
             return 190;
         default:
             return TAPPING_TERM;
@@ -230,11 +230,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case LT(_NAV,KC_TH):
-      // intercepting hold-tap (https://docs.qmk.fm/mod_tap#changing-tap-function)
-      if (record->tap.count && record->event.pressed) {
-        tap_code16(KC_T);
-        tap_code16(KC_H);  // Send th on tap
+    case KC_Q_QUOT:
+      // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
+      if (!record->tap.count && record->event.pressed) {
+        tap_code16(S(KC_QUOT));  // send " on hold
         return false;      // Return false to ignore further processing of key
       }
       break;
