@@ -65,21 +65,21 @@
 
 #define _____________________NAV_R1_5U______________________ KC_FIFTEENSTARS, RALT(KC_Q), RALT(KC_Y), RALT(KC_S), RALT(KC_P)
 #define _____________________NAV_R2_5U______________________ KC_TODO, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI
-#define _____________________NAV_R3_5U______________________ KC_DQT, KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA
+#define _____________________NAV_R3_5U______________________ KC_NO, KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA
 #define _____________________NAV_R1______________________ _____________________NAV_R1_5U______________________, KC_NO
 #define _____________________NAV_R2______________________ _____________________NAV_R2_5U______________________, KC_NO
 #define _____________________NAV_R3______________________ _____________________NAV_R3_5U______________________, KC_NO
 
 #define _______NAV_LT_2U_______ KC_ENT, KC_TRNS
 #define _______NAV_RT_2U_______ KC_TRNS, MO(_FUN)
-#define _______NAV_LT_______ KC_TRNS, _______NAV_LT_2U_______
-#define _______NAV_RT_______ _______NAV_RT_2U_______, QK_REPEAT_KEY
-#define _______NAV_REVIUNG_T_______ KC_TRNS, KC_ENT, KC_TRNS, MO(_FUN), QK_REPEAT_KEY
+#define _______NAV_LT_______ MO(_FUN), _______NAV_LT_2U_______
+#define _______NAV_RT_______ _______NAV_RT_2U_______, MO(_FUN)
+#define _______NAV_REVIUNG_T_______  MO(_FUN), KC_ENT, KC_TRNS, MO(_FUN), MO(_FUN)
 
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
 #define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_CAPS
-#define _____________________NUM_L3_5U______________________ WIN_UND, WIN_CUT, WIN_CPY, WIN_PST, KC_DEL
+#define _____________________NUM_L3_5U______________________ WIN_UND, WIN_CUT, WIN_CPY, WIN_PST, KC_NO
 #define _____________________NUM_L1______________________ KC_NO, _____________________NUM_L1_5U______________________
 #define _____________________NUM_L2______________________ KC_NO, _____________________NUM_L2_5U______________________
 #define _____________________NUM_L3______________________ KC_NO, _____________________NUM_L3_5U______________________
@@ -101,18 +101,18 @@
 #define _____________________FUN_L1_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
 #define _____________________FUN_L1______________________ KC_NO, _____________________FUN_L1_5U______________________
 #if defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)
-  #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, RGB_RMOD, RGB_MOD, RGB_TOG
+  #define _____________________FUN_L2_5U______________________ RGB_TOG, RGB_RMOD, RGB_MOD, KC_NO, QK_REBOOT
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #else
-  #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+  #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, QK_REBOOT
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #endif
-#define _____________________FUN_L3_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
+#define _____________________FUN_L3_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOTLOADER
 #define _____________________FUN_L3______________________ KC_NO, _____________________FUN_L3_5U______________________
 
-#define _____________________FUN_R1_5U______________________ KC_PSCR, KC_F7, KC_F8, KC_F9, KC_F12
-#define _____________________FUN_R2_5U______________________ A(KC_F4), KC_F4, KC_F5, KC_F6, KC_F11
-#define _____________________FUN_R3_5U______________________ KC_NO, KC_F1, KC_F2, KC_F3, KC_F10
+#define _____________________FUN_R1_5U______________________ A(KC_F4), KC_F7, KC_F8, KC_F9, KC_F12
+#define _____________________FUN_R2_5U______________________ QK_REBOOT, KC_F4, KC_F5, KC_F6, KC_F11
+#define _____________________FUN_R3_5U______________________ QK_BOOTLOADER, KC_F1, KC_F2, KC_F3, KC_F10
 #define _____________________FUN_R1______________________ _____________________FUN_R1_5U______________________, KC_NO
 #define _____________________FUN_R2______________________ _____________________FUN_R2_5U______________________, KC_NO
 #define _____________________FUN_R3______________________ _____________________FUN_R3_5U______________________, KC_NO
