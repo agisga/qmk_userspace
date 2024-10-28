@@ -42,7 +42,7 @@ enum combos {
     XC_ENT,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM qwfp_combo[] = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM qwfp_combo[] = {KC_Q_QUOT, KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
