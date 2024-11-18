@@ -40,6 +40,7 @@ enum combos {
     COMMADOT_SCLN,
     UY_COLN,
     XC_ENT,
+    RS_TAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM qwfp_combo[] = {KC_Q_QUOT, KC_W, KC_F, KC_P, COMBO_END};
@@ -47,6 +48,7 @@ const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM rs_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
   [QWFP_MOUSE] = COMBO(qwfp_combo, TO(_MOUSE)),
@@ -54,6 +56,7 @@ combo_t key_combos[] = {
   [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
   [UY_COLN] = COMBO(uy_combo, KC_COLN),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
+  [RS_TAB] = COMBO(rs_combo, KC_TAB),
 };
 #endif
 //---
@@ -234,6 +237,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
       if (!record->tap.count && record->event.pressed) {
         tap_code16(S(KC_QUOT));  // send " on hold
+        return false;      // Return false to ignore further processing of key
+      }
+      break;
+
+    case KC_Z_LPRN:
+      // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
+      if (!record->tap.count && record->event.pressed) {
+        tap_code16(S(KC_9));  // send ( on hold
+        return false;      // Return false to ignore further processing of key
+      }
+      break;
+
+    case KC_B_RPRN:
+      // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
+      if (!record->tap.count && record->event.pressed) {
+        tap_code16(S(KC_0));  // send ) on hold
         return false;      // Return false to ignore further processing of key
       }
       break;

@@ -4,9 +4,10 @@
 #define TAPPING_TERM_PER_KEY  /* Use per key tapping term */
 
 // Combos
+#define COMBO_ONLY_FROM_LAYER 0
 #ifdef COMBO_ENABLE
   #undef COMBO_TERM
-  #define COMBO_TERM 30
+  #define COMBO_TERM 20
   #define EXTRA_SHORT_COMBOS
 #endif
 
