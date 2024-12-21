@@ -17,7 +17,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LALT_T(KC_I):
             return 300;
-        case LT(_NAV,KC_SPC):
+        case LT(_MOUSE,KC_SPC):
             return 240;
         case LT(_NAV,KC_QUOT):
             return 190;
@@ -35,28 +35,22 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ENABLE
 enum combos {
     ZXCV_QWERTY,
-    QWFP_MOUSE,
-    WF_ALTAB,
+    WF_Q,
     COMMADOT_SCLN,
     UY_COLN,
     XC_ENT,
-    RS_TAB,
 };
-const uint16_t PROGMEM zxcv_combo[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM qwfp_combo[] = {KC_Q_QUOT, KC_W, KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM rs_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
-  [QWFP_MOUSE] = COMBO(qwfp_combo, TO(_MOUSE)),
-  [WF_ALTAB] = COMBO(wf_combo, KC_AT_SPECIAL),
+  [WF_Q] = COMBO(wf_combo, KC_Q),
   [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
   [UY_COLN] = COMBO(uy_combo, KC_COLN),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
-  [RS_TAB] = COMBO(rs_combo, KC_TAB),
 };
 #endif
 //---
@@ -221,19 +215,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_FIFTEENSTARS:
-      if (record->event.pressed) {
-          SEND_STRING("*************** ");
-      }
-      break;
-
-    case KC_TODO:
-      if (record->event.pressed) {
-          SEND_STRING("TODO ");
-      }
-      break;
-
-    case KC_Q_QUOT:
+    case KC_TAB_QUOT:
       // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
       if (!record->tap.count && record->event.pressed) {
         tap_code16(S(KC_QUOT));  // send " on hold

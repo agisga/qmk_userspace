@@ -8,6 +8,4 @@ enum custom_keycodes {
   KC_AUTOCLOS_CURLYBRA,
   KC_AUTOCLOS_QUOTE,
   KC_DOTSPC,
-  KC_FIFTEENSTARS,
-  KC_TODO,
 };
