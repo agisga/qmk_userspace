@@ -10,6 +10,7 @@
   #define COMBO_TERM 20
   #define EXTRA_SHORT_COMBOS
 #endif
+#define COMBO_PROCESS_KEY_RELEASE
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat
 #define QUICK_TAP_TERM 0

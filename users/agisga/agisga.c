@@ -35,22 +35,28 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ENABLE
 enum combos {
     ZXCV_QWERTY,
-    WF_Q,
+    WF_TAB,
     COMMADOT_SCLN,
     UY_COLN,
     XC_ENT,
+    CTH_V,
+    TD_ATAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM cth_combo[] = {KC_C, KC_TH, COMBO_END};
+const uint16_t PROGMEM td_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
-  [WF_Q] = COMBO(wf_combo, KC_Q),
+  [WF_TAB] = COMBO(wf_combo, KC_TAB),
   [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
   [UY_COLN] = COMBO(uy_combo, KC_COLN),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
+  [CTH_V] = COMBO(cth_combo, KC_V),
+  [TD_ATAB] = COMBO_ACTION(td_combo),  // see process_combo_event and release functions below
 };
 #endif
 //---
@@ -170,6 +176,35 @@ bool oled_task_user(void) {
 // + process records
 //-------------------------------
 
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case TD_ATAB:
+      if (pressed) {
+        layer_on(_NAV);
+        register_code(KC_LALT);
+        tap_code(KC_TAB);
+      }
+      break;
+  }
+}
+
+bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key_index, uint16_t keycode) {
+    switch (combo_index) {
+        case TD_ATAB:
+            switch(keycode) {
+                case LSFT_T(KC_T):
+                    unregister_code(KC_LALT);
+                    layer_off(_NAV);
+                    break;
+                case KC_D:
+                    // do nothing so this finger can keep hitting TAB while ALT remains pressed
+                    break;
+            }
+            return false; // do not release combo
+    }
+    return false;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
     case KC_AT_SPECIAL:
@@ -182,6 +217,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             layer_off(_NAV);
         }
         break;
+
+    case KC_TH:
+      if (record->event.pressed) {
+          SEND_STRING("th");
+      }
+      break;
 
     case KC_AUTOCLOS_PAREN:
       if (record->event.pressed) {
@@ -215,7 +256,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_TAB_QUOT:
+    case KC_Q_QUOT:
       // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
       if (!record->tap.count && record->event.pressed) {
         tap_code16(S(KC_QUOT));  // send " on hold
