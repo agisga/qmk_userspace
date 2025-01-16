@@ -39,7 +39,6 @@ enum combos {
     COMMADOT_SCLN,
     UY_COLN,
     XC_ENT,
-    CTH_V,
     TD_ATAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V, COMBO_END};
@@ -47,7 +46,6 @@ const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM cth_combo[] = {KC_C, KC_TH, COMBO_END};
 const uint16_t PROGMEM td_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_QWERTY] = COMBO(zxcv_combo, TG(_QWERTY)),
@@ -55,7 +53,6 @@ combo_t key_combos[] = {
   [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
   [UY_COLN] = COMBO(uy_combo, KC_COLN),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
-  [CTH_V] = COMBO(cth_combo, KC_V),
   [TD_ATAB] = COMBO_ACTION(td_combo),  // see process_combo_event and release functions below
 };
 #endif

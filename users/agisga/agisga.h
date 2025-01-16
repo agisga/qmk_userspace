@@ -100,7 +100,7 @@
 
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
-#define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_CAPS
+#define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, LSFT_T(KC_V), KC_CAPS
 #define _____________________NUM_L3_5U______________________ WIN_UND, WIN_CUT, WIN_CPY, WIN_PST, KC_NO
 #define _____________________NUM_L1______________________ KC_NO, _____________________NUM_L1_5U______________________
 #define _____________________NUM_L2______________________ KC_NO, _____________________NUM_L2_5U______________________
