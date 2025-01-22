@@ -29,14 +29,14 @@
 
 #define _____________________COLEMAK_L1_5U_____________________ KC_Q_QUOT, KC_W, KC_F, KC_P, KC_G
 #define _____________________COLEMAK_L2_5U_____________________ LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_D
-#define _____________________COLEMAK_L3_5U_____________________ KC_Z_LPRN, KC_X, KC_C, KC_TH, KC_B_RPRN
+#define _____________________COLEMAK_L3_5U_____________________ KC_Z_LPRN, KC_X, KC_C, KC_V, KC_B_RPRN
 #define _____________________COLEMAK_L1_____________________ KC_TAB, _____________________COLEMAK_L1_5U_____________________
 #define _____________________COLEMAK_L2_____________________ LT(_MOUSE,KC_ESC), _____________________COLEMAK_L2_5U_____________________
 #define _____________________COLEMAK_L3_____________________ KC_AT_SPECIAL, _____________________COLEMAK_L3_5U_____________________
 
 #define _____________________COLEMAK_R1_5U____________________ KC_J, KC_L, KC_U, KC_Y, KC_BSPC
-#define _____________________COLEMAK_R2_5U____________________ KC_H, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O)
-#define _____________________COLEMAK_R3_5U____________________ KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH
+#define _____________________COLEMAK_R2_5U____________________ KC_M, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O)
+#define _____________________COLEMAK_R3_5U____________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH
 #define _____________________COLEMAK_R1_____________________ _____________________COLEMAK_R1_5U____________________, KC_BSPC
 #define _____________________COLEMAK_R2_____________________ _____________________COLEMAK_R2_5U____________________, KC_QUOT
 #define _____________________COLEMAK_R3_____________________ _____________________COLEMAK_R3_5U____________________, KC_SCLN
@@ -100,7 +100,7 @@
 
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
-#define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, LSFT_T(KC_V), KC_CAPS
+#define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_CAPS
 #define _____________________NUM_L3_5U______________________ WIN_UND, WIN_CUT, WIN_CPY, WIN_PST, KC_NO
 #define _____________________NUM_L1______________________ KC_NO, _____________________NUM_L1_5U______________________
 #define _____________________NUM_L2______________________ KC_NO, _____________________NUM_L2_5U______________________
