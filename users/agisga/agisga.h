@@ -18,7 +18,7 @@
 
 #define KC_Q_QUOT LT(0,KC_Q)
 #define KC_Z_LPRN LT(0,KC_Z)
-#define KC_B_RPRN LT(0,KC_B)
+#define KC_V_RPRN LT(0,KC_V)
 
 #define _______BASE_LT_2U_______ OSL(_NUM), LT(_MOUSE,KC_SPC)
 #define _______BASE_RT_2U_______ LT(_NAV,KC_QUOT), OSM(MOD_LSFT)
@@ -27,17 +27,17 @@
 #define _______BASE_REVIUNG_T_______ KC_BTN1, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), QK_REPEAT_KEY
 
 
-#define _____________________COLEMAK_L1_5U_____________________ KC_Q_QUOT, KC_W, KC_F, KC_P, KC_G
-#define _____________________COLEMAK_L2_5U_____________________ LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_D
-#define _____________________COLEMAK_L3_5U_____________________ KC_Z_LPRN, KC_X, KC_C, KC_V, KC_B_RPRN
+#define _____________________COLEMAK_L1_5U_____________________ KC_Q_QUOT, KC_W, KC_F, KC_P, KC_B
+#define _____________________COLEMAK_L2_5U_____________________ LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G
+#define _____________________COLEMAK_L3_5U_____________________ KC_Z_LPRN, KC_X, KC_C, KC_D, KC_V_RPRN
 #define _____________________COLEMAK_L1_____________________ KC_TAB, _____________________COLEMAK_L1_5U_____________________
-#define _____________________COLEMAK_L2_____________________ LT(_MOUSE,KC_ESC), _____________________COLEMAK_L2_5U_____________________
+#define _____________________COLEMAK_L2_____________________ LT(_MOUSE,KC_ENT), _____________________COLEMAK_L2_5U_____________________
 #define _____________________COLEMAK_L3_____________________ KC_AT_SPECIAL, _____________________COLEMAK_L3_5U_____________________
 
 #define _____________________COLEMAK_R1_5U____________________ KC_J, KC_L, KC_U, KC_Y, KC_BSPC
 #define _____________________COLEMAK_R2_5U____________________ KC_M, LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), LGUI_T(KC_O)
 #define _____________________COLEMAK_R3_5U____________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH
-#define _____________________COLEMAK_R1_____________________ _____________________COLEMAK_R1_5U____________________, KC_BSPC
+#define _____________________COLEMAK_R1_____________________ KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_BSPC
 #define _____________________COLEMAK_R2_____________________ _____________________COLEMAK_R2_5U____________________, KC_QUOT
 #define _____________________COLEMAK_R3_____________________ _____________________COLEMAK_R3_5U____________________, KC_SCLN
 
