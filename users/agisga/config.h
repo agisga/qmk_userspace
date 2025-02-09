@@ -34,3 +34,6 @@
 
 // One-shot keys
 #define ONESHOT_TIMEOUT 1500  /* Time (in ms) before the one shot key is released */
+
+// Enable caps word by double tapping left shift
+// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
