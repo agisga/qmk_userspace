@@ -78,7 +78,7 @@
 #define _______NAV_REVIUNG_T_______  MO(_FUN), KC_ENT, KC_TRNS, MO(_FUN), MO(_FUN)
 
 
-#define _____________________MOUSE_L1_5U______________________ KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, KC_NO
+#define _____________________MOUSE_L1_5U______________________ KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, KC_BTN1
 #define _____________________MOUSE_L2_5U______________________ KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, KC_TAB
 #define _____________________MOUSE_L3_5U______________________ KC_BTN2, KC_BTN3, KC_BSPC, KC_DEL, KC_ESC
 #define _____________________MOUSE_L1______________________ KC_NO, _____________________MOUSE_L1_5U______________________
