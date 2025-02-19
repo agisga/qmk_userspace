@@ -63,6 +63,12 @@ combo_t key_combos[] = {
 
 int r_thumb = 0;
 int l_thumb = 0;
+int r_reachy = 0;
+int l_reachy = 0;
+int r_tucky = 0;
+int l_tucky = 0;
+int r_extra = 0;
+int l_extra = 0;
 int r_fingers = 0;
 int l_fingers = 0;
 
@@ -75,6 +81,8 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 
 char keylog_str[24] = {};
 char thumb_use_str[24] = {};
+char lthumb_use_str[24] = {};
+char rthumb_use_str[24] = {};
 char finger_use_str[24] = {};
 
 const char code_to_name[60] = {
@@ -101,10 +109,28 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
   // Check if row is equal to 7 (right thumb was used) and increment counter
   if (record->event.key.row == 7) {
       r_thumb++;
+      if (record->event.key.col == 5){
+          r_reachy++;
+      }
+      else if (record->event.key.col == 4){
+          r_tucky++;
+      }
+      else {
+          r_extra++;
+      }
   }
   // Check if row is equal to 3 (left thumb was used) and increment counter
   else if (record->event.key.row == 3) {
       l_thumb++;
+      if (record->event.key.col == 5){
+          l_reachy++;
+      }
+      else if (record->event.key.col == 4){
+          l_tucky++;
+      }
+      else {
+          l_extra++;
+      }
   }
   // Check if left hand fingers other than thumb
   else if (record->event.key.row == 0 || record->event.key.row == 1 || record->event.key.row == 2) {
@@ -120,13 +146,15 @@ void set_keylog(uint16_t keycode, keyrecord_t *record) {
   //}
 
   // update thumb use log
-  snprintf(thumb_use_str, sizeof(thumb_use_str), "LT: %d\nRT: %d\n",
-           l_thumb, r_thumb);
-  //snprintf(thumb_use_str, sizeof(thumb_use_str), "LT: %d\nRT: %d   %dx%d\n",
-  //         l_thumb, r_thumb, record->event.key.row, record->event.key.col);
+  snprintf(lthumb_use_str, sizeof(lthumb_use_str), "%d,%d,%d|",
+           l_extra, l_tucky, l_reachy);
+  snprintf(rthumb_use_str, sizeof(rthumb_use_str), "%d,%d,%d\n",
+           r_reachy, r_tucky, r_extra);
+  //snprintf(thumb_use_str, sizeof(thumb_use_str), "%d %d %d %d;\n%d %d",
+  //         l_tucky, l_reachy, r_reachy, r_tucky, l_extra, r_extra);
 
   // update finger use log
-  snprintf(finger_use_str, sizeof(finger_use_str), "LF: %d\nRF: %d\n",
+  snprintf(finger_use_str, sizeof(finger_use_str), "%d|%d\n",
            l_fingers, r_fingers);
 }
 
@@ -134,12 +162,15 @@ void oled_render_keylog(void) {
     oled_write(keylog_str, false);
 }
 
-void oled_render_thumb_use_log(void) {
-    oled_write(thumb_use_str, false);
-}
-
 void oled_render_finger_use_log(void) {
     oled_write(finger_use_str, false);
+}
+
+void oled_render_lthumb_use_log(void) {
+    oled_write(lthumb_use_str, false);
+}
+void oled_render_rthumb_use_log(void) {
+    oled_write(rthumb_use_str, false);
 }
 
 void oled_render_logo(void) {
@@ -153,9 +184,38 @@ void oled_render_logo(void) {
 
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
-        oled_render_thumb_use_log();
         oled_render_finger_use_log();
+        oled_render_lthumb_use_log();
+        oled_render_rthumb_use_log();
         //oled_render_keylog();
+        // Layer Status
+        oled_write_P(PSTR("Layer: "), false);
+        switch (get_highest_layer(layer_state)) {
+            case _COLEMAK:
+                oled_write_P(PSTR("Colemak\n"), false);
+                break;
+            case _QWERTY:
+                oled_write_P(PSTR("QWERTY\n"), false);
+                break;
+            case _NUM:
+                oled_write_P(PSTR("NUM\n"), false);
+                break;
+            case _NAV:
+                oled_write_P(PSTR("NAV\n"), false);
+                break;
+            case _MOUSE:
+                oled_write_P(PSTR("MOUSE\n"), false);
+                break;
+            case _FUN:
+                oled_write_P(PSTR("FUN\n"), false);
+                break;
+            default:
+                // Or use the write_ln shortcut over adding '\n' to the end of your string
+                oled_write_ln_P(PSTR("Undefined"), false);
+        }
+        // Caps Status
+        led_t led_state = host_keyboard_led_state();
+        oled_write_P(led_state.caps_lock ? PSTR("CAPS LOCK") : PSTR(""), false);
     } else {
         // note: keyloggers and counters don't work on non-master side due to qmk limitations
         oled_render_logo();
