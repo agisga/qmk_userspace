@@ -17,12 +17,29 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LALT_T(KC_I):
             return 300;
+        case LALT_T(KC_S):
+            return 300;
+        case LALT_T(KC_L):
+            return 300;
         case LT(_MOUSE,KC_SPC):
             return 240;
         case LT(_NAV,KC_QUOT):
             return 190;
         default:
             return TAPPING_TERM;
+    }
+}
+
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(_NAV,KC_N):
+            return 0;
+        case LT(_MOUSE,KC_SPC):
+            return 0;
+        case LT(_NAV,KC_QUOT):
+            return 0;
+        default:
+            return QUICK_TAP_TERM;
     }
 }
 //---
@@ -34,26 +51,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef COMBO_ENABLE
 enum combos {
-    ZXCD_QWERTY,
-    WF_TAB,
-    COMMADOT_SCLN,
-    UY_COLN,
+    ZXCV_COLEMAK,
+    WE_TAB,
+    KL_BSPC,
+    JK_CBSPC,
     XC_ENT,
-    TG_ATAB,
+    FG_ATAB,
 };
-const uint16_t PROGMEM zxcd_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM commadot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN, COMBO_END};
+const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM jk_combo[] = {LSFT_T(KC_J), LCTL_T(KC_K), COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM tg_combo[] = {LSFT_T(KC_T), KC_G, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 combo_t key_combos[] = {
-  [ZXCD_QWERTY] = COMBO(zxcd_combo, TG(_QWERTY)),
-  [WF_TAB] = COMBO(wf_combo, KC_TAB),
-  [COMMADOT_SCLN] = COMBO(commadot_combo, KC_SCLN),
-  [UY_COLN] = COMBO(uy_combo, KC_COLN),
+  [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
+  [WE_TAB] = COMBO(we_combo, KC_TAB),
+  [KL_BSPC] = COMBO(kl_combo, KC_BSPC),
+  [JK_CBSPC] = COMBO(jk_combo, C(KC_BSPC)),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
-  [TG_ATAB] = COMBO_ACTION(tg_combo),  // see process_combo_event and release functions below
+  [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
 };
 #endif
 //---
@@ -256,7 +273,7 @@ bool caps_word_press_user(uint16_t keycode) {
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case TG_ATAB:
+    case FG_ATAB:
       if (pressed) {
         layer_on(_NAV);
         register_code(KC_LALT);
@@ -268,13 +285,13 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
 bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key_index, uint16_t keycode) {
     switch (combo_index) {
-        case TG_ATAB:
+        case FG_ATAB:
             switch(keycode) {
-                case LSFT_T(KC_T):
+                case LSFT_T(KC_F):
                     unregister_code(KC_LALT);
                     layer_off(_NAV);
                     break;
-                case KC_D:
+                case KC_G:
                     // do nothing so this finger can keep hitting TAB while ALT remains pressed
                     break;
             }

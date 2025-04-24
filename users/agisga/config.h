@@ -12,8 +12,9 @@
 #endif
 #define COMBO_PROCESS_KEY_RELEASE
 
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat
-#define QUICK_TAP_TERM 0
+// double tap hold auto-repeat
+#define QUICK_TAP_TERM 120
+#define QUICK_TAP_TERM_PER_KEY
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
@@ -33,7 +34,7 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 // One-shot keys
-#define ONESHOT_TIMEOUT 1500  /* Time (in ms) before the one shot key is released */
+#define ONESHOT_TIMEOUT 2000  /* Time (in ms) before the one shot key is released */
 
 // Enable caps word by double tapping left shift
 // #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
