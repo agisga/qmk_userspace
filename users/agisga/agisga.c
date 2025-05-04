@@ -13,6 +13,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LGUI_T(KC_O):
             return 300;
+        case LGUI_T(KC_B):
+            return 300;
         case LALT_T(KC_R):
             return 300;
         case LALT_T(KC_I):
@@ -53,23 +55,23 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     ZXCV_COLEMAK,
     WE_TAB,
-    KL_BSPC,
-    JK_CBSPC,
-    XC_ENT,
+    IO_BSPC,
+    COMDOT_CBSPC,
+    ZX_ENT,
     FG_ATAB,
 };
 const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN, COMBO_END};
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM kl_combo[] = {LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM jk_combo[] = {LSFT_T(KC_J), LCTL_T(KC_K), COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM comdot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
   [WE_TAB] = COMBO(we_combo, KC_TAB),
-  [KL_BSPC] = COMBO(kl_combo, KC_BSPC),
-  [JK_CBSPC] = COMBO(jk_combo, C(KC_BSPC)),
-  [XC_ENT] = COMBO(xc_combo, KC_ENT),
+  [IO_BSPC] = COMBO(io_combo, KC_BSPC),
+  [COMDOT_CBSPC] = COMBO(comdot_combo, C(KC_BSPC)),
+  [ZX_ENT] = COMBO(zx_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
 };
 #endif
