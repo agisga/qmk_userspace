@@ -14,7 +14,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LGUI_T(KC_O):
             return 300;
         case LGUI_T(KC_B):
-            return 300;
+            return 400;
         case LALT_T(KC_R):
             return 300;
         case LALT_T(KC_I):
@@ -64,7 +64,7 @@ const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN, COMBO_E
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM comdot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM zx_combo[] = {KC_Z_LPRN, KC_X, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
