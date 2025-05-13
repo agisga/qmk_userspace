@@ -13,7 +13,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LGUI_T(KC_O):
             return 300;
-        case LGUI_T(KC_B):
+        case LGUI_T(KC_SCLN):
             return 400;
         case LALT_T(KC_R):
             return 300;
@@ -25,6 +25,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LT(_MOUSE,KC_SPC):
             return 240;
+        case LT(_FUN,KC_M):
+            return 300;
         case LT(_NAV,KC_QUOT):
             return 190;
         default:
@@ -35,6 +37,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(_NAV,KC_N):
+            return 0;
+        case LT(_FUN,KC_M):
             return 0;
         case LT(_MOUSE,KC_SPC):
             return 0;
@@ -60,17 +64,17 @@ enum combos {
     ZX_ENT,
     FG_ATAB,
 };
-const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN, COMBO_END};
+const uint16_t PROGMEM zxcv_combo[] = {KC_X, KC_BSPC, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM comdot_combo[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM zx_combo[] = {KC_Z_LPRN, KC_X, COMBO_END};
+const uint16_t PROGMEM zx_combo[] = {KC_X, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
   [WE_TAB] = COMBO(we_combo, KC_TAB),
-  [IO_BSPC] = COMBO(io_combo, KC_BSPC),
-  [COMDOT_CBSPC] = COMBO(comdot_combo, C(KC_BSPC)),
+  [IO_BSPC] = COMBO(io_combo, KC_B),
+  [COMDOT_CBSPC] = COMBO(comdot_combo, KC_Z),
   [ZX_ENT] = COMBO(zx_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
 };
@@ -232,9 +236,9 @@ bool oled_task_user(void) {
                 // Or use the write_ln shortcut over adding '\n' to the end of your string
                 oled_write_ln_P(PSTR("Undefined"), false);
         }
-        // Caps Status
-        led_t led_state = host_keyboard_led_state();
-        oled_write_P(led_state.caps_lock ? PSTR("CAPS LOCK") : PSTR(""), false);
+        // Caps Status; FIXME: after the first time caps is pressed "CAPS LOCK" stays on and does not turn off
+        //led_t led_state = host_keyboard_led_state();
+        //oled_write_P(led_state.caps_lock ? PSTR("CAPS LOCK") : PSTR(""), false);
     } else {
         // note: keyloggers and counters don't work on non-master side due to qmk limitations
         oled_render_logo();
@@ -318,6 +322,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_TH:
       if (record->event.pressed) {
           SEND_STRING("th");
+      }
+      break;
+
+    case KC_R_ASSIGN:
+      if (record->event.pressed) {
+          SEND_STRING("<-");
       }
       break;
 
