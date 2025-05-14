@@ -39,7 +39,6 @@
 #define _______QWERTY_RT_______ _______QWERTY_RT_2U_______, QK_REPEAT_KEY
 #define _______QWERTY_LT_2U_______ OSL(_NUM), LT(_MOUSE,KC_SPC)
 #define _______QWERTY_LT_______ KC_BTN1, _______COLEMAK_LT_2U_______
-#define _______QWERTY_REVIUNG_T_______ KC_BTN1, OSL(_NUM), LT(_NAV,KC_SPC), KC_N, KC_M
 
 
 #define _____________________COLEMAK_L1_5U_____________________ KC_Q_QUOT, KC_W, KC_F, KC_P, KC_B
@@ -60,7 +59,6 @@
 #define _______COLEMAK_RT_______ _______COLEMAK_RT_2U_______, QK_REPEAT_KEY
 #define _______COLEMAK_LT_2U_______ _______QWERTY_LT_2U_______
 #define _______COLEMAK_LT_______ _______QWERTY_LT_______
-#define _______COLEMAK_REVIUNG_T_______ KC_BTN1, OSL(_NUM), LT(_NAV,KC_SPC), OSM(MOD_LSFT), QK_REPEAT_KEY
 
 
 #define _____________________NAV_L1_5U______________________ KC_PGUP, KC_HOME, KC_UP, KC_END, KC_INS
@@ -81,7 +79,6 @@
 #define _______NAV_RT_2U_______ KC_TRNS, KC_ENT
 #define _______NAV_LT_______ MO(_FUN), _______NAV_LT_2U_______
 #define _______NAV_RT_______ _______NAV_RT_2U_______, MO(_FUN)
-#define _______NAV_REVIUNG_T_______  MO(_FUN), KC_ENT, KC_TRNS, KC_ENT, MO(_FUN)
 
 
 #define _____________________MOUSE_L1_5U______________________ KC_WH_U, KC_WH_L, KC_MS_U, KC_WH_R, KC_BTN1
@@ -102,7 +99,6 @@
 #define _______MOUSE_LT_______ MO(_FUN), _______MOUSE_LT_2U_______
 #define _______MOUSE_RT_2U_______ CW_TOGG, KC_CAPS
 #define _______MOUSE_RT_______ _______MOUSE_RT_2U_______, MO(_FUN)
-#define _______MOUSE_REVIUNG_T_______ MO(_FUN), KC_ENT, CW_TOGG, KC_NO, MO(_FUN)
 
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
@@ -123,7 +119,6 @@
 #define _______NUM_RT_2U_______ KC_EQL, KC_0
 #define _______NUM_LT_______ KC_TRNS, _______NUM_LT_2U_______
 #define _______NUM_RT_______ _______NUM_RT_2U_______, KC_NO
-#define _______NUM_REVIUNG_T_______ KC_TRNS, KC_TRNS, KC_EQL, KC_0, KC_NO
 
 
 #define _____________________FUN_L1_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
@@ -149,7 +144,6 @@
 #define _______FUN_RT_2U_______ KC_NO, KC_NO
 #define _______FUN_LT_______ KC_NO, _______FUN_LT_2U_______
 #define _______FUN_RT_______ _______FUN_RT_2U_______, KC_NO
-#define _______FUN_REVIUNG_T_______ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO
 
 
 
