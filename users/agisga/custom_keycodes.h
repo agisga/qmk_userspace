@@ -9,5 +9,6 @@ enum custom_keycodes {
   KC_AUTOCLOS_QUOTE,
   KC_DOTSPC,
   KC_TH,
+  KC_QU,
   KC_R_ASSIGN,
 };

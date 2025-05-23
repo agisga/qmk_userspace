@@ -21,16 +21,16 @@
 #define KC_V_RPRN LT(0,KC_V)
 
 
-#define _____________________QWERTY_L1_5U______________________ KC_Q, KC_W, KC_E, KC_R, KC_T
+#define _____________________QWERTY_L1_5U______________________ KC_Q_QUOT, KC_W, KC_E, KC_R, KC_T
 #define _____________________QWERTY_L2_5U______________________ LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G
-#define _____________________QWERTY_L3_5U______________________ OSM(MOD_LSFT), KC_X, KC_BSPC, KC_C, KC_V
+#define _____________________QWERTY_L3_5U______________________ OSM(MOD_LSFT), KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN
 #define _____________________QWERTY_L1______________________ KC_TAB, _____________________QWERTY_L1_5U______________________
 #define _____________________QWERTY_L2______________________ LT(_MOUSE,KC_ESC), _____________________QWERTY_L2_5U______________________
 #define _____________________QWERTY_L3______________________ KC_AT_SPECIAL, _____________________QWERTY_L3_5U______________________
 
 #define _____________________QWERTY_R1_5U______________________ KC_Y, KC_U, KC_I, KC_O, KC_P
-#define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_SCLN)
-#define _____________________QWERTY_R3_5U______________________ KC_MINS, KC_QUOT, KC_COMM, KC_DOT, KC_SLSH
+#define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_QUOT)
+#define _____________________QWERTY_R3_5U______________________ KC_B, KC_BSPC, KC_COMM, KC_DOT, KC_SLSH
 #define _____________________QWERTY_R1______________________ _____________________QWERTY_R1_5U______________________, KC_BSPC
 #define _____________________QWERTY_R2______________________ _____________________QWERTY_R2_5U______________________, LT(_MOUSE,KC_QUOT)
 #define _____________________QWERTY_R3______________________ _____________________QWERTY_R3_5U______________________, KC_ENT
@@ -103,22 +103,22 @@
 
 #define _____________________NUM_L1_5U______________________ C(G(KC_LEFT)), C(G(KC_RIGHT)), KC_VOLD, KC_VOLU, KC_MUTE
 #define _____________________NUM_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, WIN_UND
-#define _____________________NUM_L3_5U______________________ KC_Z, WIN_CUT, WIN_CPY, WIN_PST, KC_B
+#define _____________________NUM_L3_5U______________________ C(S(KC_TAB)), C(KC_TAB), WIN_CUT, WIN_CPY, WIN_PST
 #define _____________________NUM_L1______________________ KC_NO, _____________________NUM_L1_5U______________________
 #define _____________________NUM_L2______________________ KC_NO, _____________________NUM_L2_5U______________________
 #define _____________________NUM_L3______________________ KC_NO, _____________________NUM_L3_5U______________________
 
 #define _____________________NUM_R1_5U______________________ KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC
-#define _____________________NUM_R2_5U______________________ S(KC_9), KC_4, KC_5, KC_6, S(KC_0)
+#define _____________________NUM_R2_5U______________________ KC_EQL, KC_4, KC_5, KC_6, KC_MINS
 #define _____________________NUM_R3_5U______________________ KC_BSLS, KC_1, KC_2, KC_3, KC_GRV
 #define _____________________NUM_R1______________________ _____________________NUM_R1_5U______________________, KC_NO
 #define _____________________NUM_R2______________________ _____________________NUM_R2_5U______________________, KC_NO
 #define _____________________NUM_R3______________________ _____________________NUM_R3_5U______________________, KC_NO
 
 #define _______NUM_LT_2U_______ KC_TRNS, KC_SPC
-#define _______NUM_RT_2U_______ KC_EQL, KC_0
+#define _______NUM_RT_2U_______ KC_UNDS, KC_0
 #define _______NUM_LT_______ KC_TRNS, _______NUM_LT_2U_______
-#define _______NUM_RT_______ _______NUM_RT_2U_______, KC_NO
+#define _______NUM_RT_______ _______NUM_RT_2U_______, KC_SCLN
 
 
 #define _____________________FUN_L1_5U______________________ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1, QK_DYNAMIC_MACRO_RECORD_START_2, QK_DYNAMIC_MACRO_PLAY_2, QK_DYNAMIC_MACRO_RECORD_STOP
