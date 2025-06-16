@@ -30,7 +30,7 @@
 
 #define _____________________QWERTY_R1_5U______________________ KC_Y, KC_U, KC_I, KC_O, KC_P
 #define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_QUOT)
-#define _____________________QWERTY_R3_5U______________________ KC_B, KC_BSPC, KC_COMM, KC_DOT, KC_SLSH
+#define _____________________QWERTY_R3_5U______________________ KC_B, KC_SCLN, KC_COMM, KC_DOT, KC_SLSH
 #define _____________________QWERTY_R1______________________ _____________________QWERTY_R1_5U______________________, KC_BSPC
 #define _____________________QWERTY_R2______________________ _____________________QWERTY_R2_5U______________________, LT(_MOUSE,KC_QUOT)
 #define _____________________QWERTY_R3______________________ _____________________QWERTY_R3_5U______________________, KC_ENT

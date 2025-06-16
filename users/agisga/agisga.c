@@ -73,8 +73,8 @@ const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 combo_t key_combos[] = {
   [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
   [WE_TAB] = COMBO(we_combo, KC_TAB),
-  [COMDOT_SCLN] = COMBO(comdot_combo, KC_SCLN),
-  [IO_COLN] = COMBO(io_combo, KC_COLN),
+  [COMDOT_SCLN] = COMBO(comdot_combo, C(KC_BSPC)),
+  [IO_COLN] = COMBO(io_combo, KC_BSPC),
   [ZX_ENT] = COMBO(zx_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
 };
