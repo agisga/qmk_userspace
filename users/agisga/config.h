@@ -2,6 +2,7 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY  /* Use per key tapping term */
+#define FLOW_TAP_TERM 200
 
 // Combos
 #define COMBO_ONLY_FROM_LAYER 0
