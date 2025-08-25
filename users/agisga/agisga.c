@@ -23,12 +23,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case LALT_T(KC_L):
             return 300;
-        case LT(_MOUSE,KC_SPC):
-            return 240;
+        case LT(_NAV,KC_SPC):
+            return 200;
         case LT(_FUN,KC_M):
             return 300;
-        case LT(_NAV,KC_QUOT):
-            return 190;
+        case LT(_NUM,KC_N):
+            return 240;
         default:
             return TAPPING_TERM;
     }
@@ -36,13 +36,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_NAV,KC_N):
+        case LT(_NUM,KC_N):
             return 0;
         case LT(_FUN,KC_M):
             return 0;
-        case LT(_MOUSE,KC_SPC):
-            return 0;
-        case LT(_NAV,KC_QUOT):
+        case LT(_NAV,KC_SPC):
             return 0;
         default:
             return QUICK_TAP_TERM;
@@ -57,25 +55,13 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef COMBO_ENABLE
 enum combos {
-    ZXCV_COLEMAK,
-    WE_TAB,
-    COMDOT_SCLN,
-    IO_COLN,
-    ZX_ENT,
     FG_ATAB,
+    JKL_ENT,
 };
-const uint16_t PROGMEM zxcv_combo[] = {KC_Z_LPRN, KC_X, KC_C, KC_V_RPRN, COMBO_END};
-const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM comdot_combo[] = {KC_BSPC, KC_DOT, COMBO_END};
-const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM zx_combo[] = {KC_Z_LPRN, KC_X, COMBO_END};
-const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
+const uint16_t PROGMEM jkl_combo[] = {KC_J, KC_K, KC_L, COMBO_END};
 combo_t key_combos[] = {
-  [ZXCV_COLEMAK] = COMBO(zxcv_combo, TG(_COLEMAK)),
-  [WE_TAB] = COMBO(we_combo, KC_TAB),
-  [COMDOT_SCLN] = COMBO(comdot_combo, KC_SCLN),
-  [IO_COLN] = COMBO(io_combo, S(KC_SCLN)),
-  [ZX_ENT] = COMBO(zx_combo, KC_ENT),
+  [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
 };
 #endif
@@ -214,9 +200,6 @@ bool oled_task_user(void) {
         // Layer Status
         oled_write_P(PSTR("Layer: "), false);
         switch (get_highest_layer(layer_state)) {
-            case _COLEMAK:
-                oled_write_P(PSTR("Colemak\n"), false);
-                break;
             case _QWERTY:
                 oled_write_P(PSTR("QWERTY\n"), false);
                 break;
@@ -226,8 +209,8 @@ bool oled_task_user(void) {
             case _NAV:
                 oled_write_P(PSTR("NAV\n"), false);
                 break;
-            case _MOUSE:
-                oled_write_P(PSTR("MOUSE\n"), false);
+            case _MACRO:
+                oled_write_P(PSTR("MACRO\n"), false);
                 break;
             case _FUN:
                 oled_write_P(PSTR("FUN\n"), false);
@@ -293,7 +276,7 @@ bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key
     switch (combo_index) {
         case FG_ATAB:
             switch(keycode) {
-                case LSFT_T(KC_F):
+                case KC_F:
                     unregister_code(KC_LALT);
                     layer_off(_NAV);
                     break;
@@ -369,10 +352,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_Q_QUOT:
+    case KC_Q_EXCL:
       // intercepting hold-tap (see https://docs.qmk.fm/mod_tap#changing-tap-function and https://docs.qmk.fm/mod_tap#changing-hold-function)
       if (!record->tap.count && record->event.pressed) {
-        tap_code16(S(KC_QUOT));  // send " on hold
+        tap_code16(S(KC_1));  // send ! on hold
         return false;      // Return false to ignore further processing of key
       }
       break;
@@ -402,4 +385,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
 
 return true;
+}
+
+// see https://github.com/qmk/qmk_firmware/issues/22566
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (IS_QK_ONE_SHOT_MOD(keycode) && is_oneshot_layer_active() && record->event.pressed) {
+        clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+    }
+    return;
 }
