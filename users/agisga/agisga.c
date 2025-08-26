@@ -58,8 +58,8 @@ enum combos {
     FG_ATAB,
     JKL_ENT,
 };
-const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
-const uint16_t PROGMEM jkl_combo[] = {KC_J, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
+const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
 combo_t key_combos[] = {
   [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
@@ -276,7 +276,7 @@ bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key
     switch (combo_index) {
         case FG_ATAB:
             switch(keycode) {
-                case KC_F:
+                case LSFT_T(KC_F):
                     unregister_code(KC_LALT);
                     layer_off(_NAV);
                     break;
@@ -375,6 +375,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;      // Return false to ignore further processing of key
       }
       break;
+
+    case LSFT_T(KC_4):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(S(KC_4)); // Send $ on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+
+    case LCTL_T(KC_5):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(S(KC_5)); // Send % on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+
+    case LALT_T(KC_6):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(S(KC_6)); // Send ^ on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
+
+    case LGUI_T(KC_0):
+        if (record->tap.count && record->event.pressed) {
+            tap_code16(S(KC_0)); // Send ) on tap
+            return false;        // Return false to ignore further processing of key
+        }
+        break;
   }
 
   // for OLED

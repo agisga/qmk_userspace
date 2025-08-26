@@ -21,14 +21,14 @@
 
 
 #define _____________________QWERTY_L1_5U______________________ KC_Q, KC_W, KC_E, KC_R, KC_T
-#define _____________________QWERTY_L2_5U______________________ KC_A, KC_S, KC_D, KC_F, KC_G
+#define _____________________QWERTY_L2_5U______________________ LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G
 #define _____________________QWERTY_L3_5U______________________ OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V
 #define _____________________QWERTY_L1______________________ KC_TAB, _____________________QWERTY_L1_5U______________________
 #define _____________________QWERTY_L2______________________ KC_ESC, _____________________QWERTY_L2_5U______________________
 #define _____________________QWERTY_L3______________________ KC_AT_SPECIAL, _____________________QWERTY_L3_5U______________________
 
 #define _____________________QWERTY_R1_5U______________________ KC_Y, KC_U, KC_I, KC_O, KC_P
-#define _____________________QWERTY_R2_5U______________________ KC_H, KC_J, KC_K, KC_L, KC_QUOT
+#define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_QUOT)
 #define _____________________QWERTY_R3_5U______________________ KC_B, KC_COMM, KC_BSPC, KC_DOT, KC_SLSH
 #define _____________________QWERTY_R1______________________ _____________________QWERTY_R1_5U______________________, KC_BSPC
 #define _____________________QWERTY_R2______________________ _____________________QWERTY_R2_5U______________________, KC_QUOT
@@ -48,7 +48,7 @@
 #define _____________________NUM_L3______________________ KC_NO, _____________________NUM_L3_5U______________________
 
 #define _____________________NUM_R1_5U______________________ S(KC_LBRC), S(KC_7), S(KC_8), S(KC_9), S(KC_RBRC)
-#define _____________________NUM_R2_5U______________________ S(KC_EQL), S(KC_4), S(KC_5), S(KC_6), S(KC_0)
+#define _____________________NUM_R2_5U______________________ S(KC_EQL), LSFT_T(KC_4), LCTL_T(KC_5), LALT_T(KC_6), LGUI_T(KC_0)
 #define _____________________NUM_R3_5U______________________ S(KC_BSLS), S(KC_1), S(KC_2), S(KC_3), KC_BSLS
 #define _____________________NUM_R1______________________ _____________________NUM_R1_5U______________________, KC_NO
 #define _____________________NUM_R2______________________ _____________________NUM_R2_5U______________________, KC_NO
@@ -80,7 +80,7 @@
 #define _______NAV_RT_______ _______NAV_RT_2U_______, MO(_FUN)
 
 
-#define _____________________MACRO_L1_5U______________________ LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RGHT)), KC_VOLU, KC_VOLD, KC_MUTE
+#define _____________________MACRO_L1_5U______________________ LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RGHT)), KC_VOLD, KC_VOLU, KC_MUTE
 #define _____________________MACRO_L2_5U______________________ OSM(MOD_LGUI), OSM(MOD_LALT), OSM(MOD_LCTL), OSM(MOD_LSFT), WIN_UND
 #define _____________________MACRO_L3_5U______________________ LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), WIN_CUT, WIN_CPY, WIN_PST
 #define _____________________MACRO_L1______________________ KC_NO, _____________________MACRO_L1_5U______________________
