@@ -60,7 +60,7 @@
 #define _______NUM_RT_______ _______NUM_RT_2U_______, S(KC_BSLS)
 
 
-#define _____________________NAV_L1_5U______________________ KC_WH_L, KC_MS_WH_UP, KC_WH_D, KC_WH_R, KC_NO
+#define _____________________NAV_L1_5U______________________ KC_WH_L, KC_MS_WH_UP, KC_WH_D, KC_WH_R, LCTL(LSFT(KC_A))
 #define _____________________NAV_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_TAB
 #define _____________________NAV_L3_5U______________________ KC_ENT, LCTL(KC_BSPC), KC_BSPC, KC_DEL, KC_ESC
 #define _____________________NAV_L1______________________ KC_TRNS, _____________________NAV_L1_5U______________________
