@@ -1,6 +1,7 @@
 RGBLIGHT_ENABLE = no
 
 # comment/uncomment when needed:
+DYNAMIC_MACRO_ENABLE = yes  # see https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_dynamic_macros
 RGB_MATRIX_ENABLE = yes
 # FIXME: for some reason RGB_MATRIX_ENABLE doesn't work when enabled from config.h conditionally for blok (and disabled for pro-micro), but only works when enabled here from rules.mk
 OLED_ENABLE = yes

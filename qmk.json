@@ -1,8 +1,8 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["reviung/reviung41", "agisga"],
         ["reviung/reviung34", "agisga"],
-        ["ferris/sweep", "agisga"]
+        ["ferris/sweep", "agisga"],
+        ["plexus80", "default"]
     ]
 }
