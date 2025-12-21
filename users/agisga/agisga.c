@@ -57,12 +57,30 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     FG_ATAB,
     JKL_ENT,
+    COMM_LPAR,
+    DOT_RPAR,
+    COMMDOT_PARS,
+    HJ_MINS,
+    XC_MINS,
+    ZX_UNDER,
 };
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
+const uint16_t PROGMEM comm_combo[] = {KC_COMM, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM dot_combo[] = {KC_BSPC, KC_DOT, COMBO_END};
+const uint16_t PROGMEM commdot_combo[] = {KC_COMM, KC_BSPC, KC_DOT, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_J), COMBO_END};
+const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
 combo_t key_combos[] = {
   [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
+  [COMM_LPAR] = COMBO(comm_combo, S(KC_9)),
+  [DOT_RPAR] = COMBO(dot_combo, S(KC_0)),
+  [COMMDOT_PARS] = COMBO(commdot_combo, KC_2PAREN),
+  [HJ_MINS] = COMBO(hj_combo, KC_MINS),
+  [XC_MINS] = COMBO(xc_combo, KC_MINS),
+  [ZX_UNDER] = COMBO(zx_combo, S(KC_MINS)),
 };
 #endif
 //---
@@ -209,9 +227,6 @@ bool oled_task_user(void) {
             case _NAV:
                 oled_write_P(PSTR("NAV\n"), false);
                 break;
-            case _MACRO:
-                oled_write_P(PSTR("MACRO\n"), false);
-                break;
             case _FUN:
                 oled_write_P(PSTR("FUN\n"), false);
                 break;
@@ -317,6 +332,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_R_ASSIGN:
       if (record->event.pressed) {
           SEND_STRING("<-");
+      }
+      break;
+
+    case KC_2PAREN:
+      if (record->event.pressed) {
+          SEND_STRING("()");
       }
       break;
 
