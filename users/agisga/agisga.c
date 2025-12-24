@@ -57,30 +57,30 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     FG_ATAB,
     JKL_ENT,
-    COMM_LPAR,
-    DOT_RPAR,
-    COMMDOT_PARS,
-    HJ_MINS,
-    XC_MINS,
-    ZX_UNDER,
+    COMM_COMBO,
+    DOT_COMBO,
+    COMMDOT_COMBO,
+    HJ_COMBO,
+    XC_COMBO,
+    ZX_COMBO,
 };
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
-const uint16_t PROGMEM comm_combo[] = {KC_COMM, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM comm_combo[] = {KC_BSPC, KC_COMM, COMBO_END};
 const uint16_t PROGMEM dot_combo[] = {KC_BSPC, KC_DOT, COMBO_END};
-const uint16_t PROGMEM commdot_combo[] = {KC_COMM, KC_BSPC, KC_DOT, COMBO_END};
+const uint16_t PROGMEM commdot_combo[] = {KC_BSPC, KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM zx_combo[] = {KC_Z, KC_X, COMBO_END};
 combo_t key_combos[] = {
   [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
   [FG_ATAB] = COMBO_ACTION(fg_combo),  // see process_combo_event and release functions below
-  [COMM_LPAR] = COMBO(comm_combo, S(KC_9)),
-  [DOT_RPAR] = COMBO(dot_combo, S(KC_0)),
-  [COMMDOT_PARS] = COMBO(commdot_combo, KC_2PAREN),
-  [HJ_MINS] = COMBO(hj_combo, KC_MINS),
-  [XC_MINS] = COMBO(xc_combo, KC_MINS),
-  [ZX_UNDER] = COMBO(zx_combo, S(KC_MINS)),
+  [COMM_COMBO] = COMBO(comm_combo, KC_AUTOCLOS_QUOTE),
+  [DOT_COMBO] = COMBO(dot_combo, KC_AUTOCLOS_PAREN),
+  [COMMDOT_COMBO] = COMBO(commdot_combo, KC_2PAREN),
+  [HJ_COMBO] = COMBO(hj_combo, KC_R_ASSIGN),
+  [XC_COMBO] = COMBO(xc_combo, KC_AUTOCLOS_CURLYBRA),
+  [ZX_COMBO] = COMBO(zx_combo, KC_AUTOCLOS_SQBRA),
 };
 #endif
 //---
@@ -418,9 +418,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case LGUI_T(KC_0):
+    case LGUI_T(KC_GRV):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_0)); // Send ) on tap
+            tap_code16(S(KC_GRV)); // Send ) on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
