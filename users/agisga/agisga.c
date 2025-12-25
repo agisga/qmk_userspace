@@ -9,16 +9,6 @@
 // shorter tapping terms for thumb keys and shift, longer for ring and pinky
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LGUI_T(KC_A):
-            return 300;
-        case LGUI_T(KC_O):
-            return 300;
-        case LGUI_T(KC_QUOT):
-            return 300;
-        case LALT_T(KC_R):
-            return 300;
-        case LALT_T(KC_I):
-            return 300;
         case LALT_T(KC_S):
             return 300;
         case LALT_T(KC_L):
@@ -41,6 +31,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
         case LT(_FUN,KC_M):
             return 0;
         case LT(_NAV,KC_SPC):
+            return 0;
+        case LT(_NAV,KC_QUOT):
             return 0;
         default:
             return QUICK_TAP_TERM;
@@ -418,9 +410,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case LGUI_T(KC_GRV):
+    case LGUI_T(KC_8):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_GRV)); // Send ) on tap
+            tap_code16(S(KC_8)); // Send ) on tap
             return false;        // Return false to ignore further processing of key
         }
         break;

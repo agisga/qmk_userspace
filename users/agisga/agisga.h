@@ -19,16 +19,16 @@
 #define KC_V_RPRN LT(0,KC_V)
 
 
-#define _____________________QWERTY_L1_5U______________________ KC_Q, KC_W, KC_E, KC_R, KC_T
-#define _____________________QWERTY_L2_5U______________________ LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G
+#define _____________________QWERTY_L1_5U______________________ KC_Q, KC_W, LGUI_T(KC_E), KC_R, KC_T
+#define _____________________QWERTY_L2_5U______________________ KC_A, LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), KC_G
 #define _____________________QWERTY_L3_5U______________________ OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V
 #define _____________________QWERTY_L1______________________ KC_TAB, _____________________QWERTY_L1_5U______________________
 #define _____________________QWERTY_L2______________________ KC_ESC, _____________________QWERTY_L2_5U______________________
 #define _____________________QWERTY_L3______________________ KC_AT_SPECIAL, _____________________QWERTY_L3_5U______________________
 
-#define _____________________QWERTY_R1_5U______________________ KC_Y, KC_U, KC_I, KC_O, KC_P
-#define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), LGUI_T(KC_SCLN)
-#define _____________________QWERTY_R3_5U______________________ KC_B, KC_COMM, KC_BSPC, KC_DOT, OSL(_NUM)
+#define _____________________QWERTY_R1_5U______________________ KC_Y, KC_U, LGUI_T(KC_I), KC_O, KC_P
+#define _____________________QWERTY_R2_5U______________________ KC_H, LSFT_T(KC_J), LCTL_T(KC_K), LALT_T(KC_L), OSL(_NUM)
+#define _____________________QWERTY_R3_5U______________________ KC_B, KC_COMM, KC_BSPC, KC_DOT, KC_SLSH
 #define _____________________QWERTY_R1______________________ _____________________QWERTY_R1_5U______________________, KC_BSPC
 #define _____________________QWERTY_R2______________________ _____________________QWERTY_R2_5U______________________, KC_QUOT
 #define _____________________QWERTY_R3______________________ _____________________QWERTY_R3_5U______________________, KC_ENT
@@ -41,33 +41,33 @@
 
 #define _____________________NUM_L1_5U______________________ KC_LBRC, KC_7, KC_8, KC_9, KC_RBRC
 #define _____________________NUM_L2_5U______________________ KC_MINS, KC_4, KC_5, KC_6, KC_EQL
-#define _____________________NUM_L3_5U______________________ KC_GRV, KC_1, KC_2, KC_3, KC_BSLS
+#define _____________________NUM_L3_5U______________________ KC_GRV, KC_1, KC_2, KC_3, KC_SCLN
 #define _____________________NUM_L1______________________ KC_NO, _____________________NUM_L1_5U______________________
 #define _____________________NUM_L2______________________ KC_NO, _____________________NUM_L2_5U______________________
 #define _____________________NUM_L3______________________ KC_NO, _____________________NUM_L3_5U______________________
 
-#define _____________________NUM_R1_5U______________________ S(KC_LBRC), S(KC_7), S(KC_8), S(KC_BSLS), S(KC_RBRC)
-#define _____________________NUM_R2_5U______________________ S(KC_EQL), LSFT_T(KC_4), LCTL_T(KC_5), LALT_T(KC_6), LGUI_T(KC_GRV)
-#define _____________________NUM_R3_5U______________________ S(KC_SLSH), S(KC_1), S(KC_2), S(KC_3), KC_TRNS
+#define _____________________NUM_R1_5U______________________ S(KC_LBRC), S(KC_7), LGUI_T(KC_8), KC_BSLS, S(KC_RBRC)
+#define _____________________NUM_R2_5U______________________ S(KC_EQL), LSFT_T(KC_4), LCTL_T(KC_5), LALT_T(KC_6), KC_TRNS
+#define _____________________NUM_R3_5U______________________ S(KC_SCLN), S(KC_1), S(KC_2), S(KC_3), S(KC_GRV)
 #define _____________________NUM_R1______________________ _____________________NUM_R1_5U______________________, KC_NO
 #define _____________________NUM_R2______________________ _____________________NUM_R2_5U______________________, KC_NO
 #define _____________________NUM_R3______________________ _____________________NUM_R3_5U______________________, KC_NO
 
 #define _______NUM_LT_2U_______ KC_0, S(KC_MINS)
-#define _______NUM_RT_2U_______ KC_SLSH, S(KC_9)
-#define _______NUM_LT_______ KC_DOT, _______NUM_LT_2U_______
-#define _______NUM_RT_______ _______NUM_RT_2U_______, S(KC_0)
+#define _______NUM_RT_2U_______ S(KC_9), S(KC_0)
+#define _______NUM_LT_______ KC_BSLS, _______NUM_LT_2U_______
+#define _______NUM_RT_______ _______NUM_RT_2U_______, S(KC_BSLS)
 
-#define _____________________NAV_L1_5U______________________ LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RGHT)), LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), LCTL(LSFT(KC_M))
-#define _____________________NAV_L2_5U______________________ KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_TAB
-#define _____________________NAV_L3_5U______________________ KC_ENT, WIN_UND, WIN_CUT, WIN_CPY, WIN_PST
+#define _____________________NAV_L1_5U______________________ LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RGHT)), KC_LGUI, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB)
+#define _____________________NAV_L2_5U______________________ KC_ENT, KC_LALT, KC_LCTL, KC_LSFT, KC_TAB
+#define _____________________NAV_L3_5U______________________ KC_LSFT, WIN_UND, WIN_CUT, WIN_CPY, WIN_PST
 #define _____________________NAV_L1______________________ KC_TRNS, _____________________NAV_L1_5U______________________
 #define _____________________NAV_L2______________________ KC_TRNS, _____________________NAV_L2_5U______________________
 #define _____________________NAV_L3______________________ KC_TRNS, _____________________NAV_L3_5U______________________
 
 #define _____________________NAV_R1_5U______________________ KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_INS
-#define _____________________NAV_R2_5U______________________ KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_APP
-#define _____________________NAV_R3_5U______________________ KC_ESC, KC_DEL, KC_BSPC, LGUI(LALT(KC_SPC)), KC_ENT
+#define _____________________NAV_R2_5U______________________ KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_ENT
+#define _____________________NAV_R3_5U______________________ KC_ESC, KC_DEL, KC_BSPC, LGUI(LALT(KC_SPC)), KC_APP
 #define _____________________NAV_R1______________________ _____________________NAV_R1_5U______________________, KC_NO
 #define _____________________NAV_R2______________________ _____________________NAV_R2_5U______________________, KC_NO
 #define _____________________NAV_R3______________________ _____________________NAV_R3_5U______________________, KC_NO
