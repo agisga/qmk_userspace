@@ -12,4 +12,5 @@ enum custom_keycodes {
   KC_TH,
   KC_QU,
   KC_R_ASSIGN,
+  KC_SELECT_LINE,
 };

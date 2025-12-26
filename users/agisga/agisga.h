@@ -67,40 +67,40 @@
 
 #define _____________________NAV_R1_5U______________________ KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_INS
 #define _____________________NAV_R2_5U______________________ KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_ENT
-#define _____________________NAV_R3_5U______________________ KC_ESC, KC_DEL, KC_BSPC, LGUI(LALT(KC_SPC)), KC_APP
+#define _____________________NAV_R3_5U______________________ KC_ESC, KC_DEL, KC_BSPC, KC_SELECT_LINE, KC_APP
 #define _____________________NAV_R1______________________ _____________________NAV_R1_5U______________________, KC_NO
 #define _____________________NAV_R2______________________ _____________________NAV_R2_5U______________________, KC_NO
 #define _____________________NAV_R3______________________ _____________________NAV_R3_5U______________________, KC_NO
 
-#define _______NAV_LT_2U_______ KC_NO, KC_TRNS
+#define _______NAV_LT_2U_______ KC_BTN1, KC_TRNS
 #define _______NAV_RT_2U_______ KC_TAB, CW_TOGG
 #define _______NAV_LT_______ MO(_FUN), _______NAV_LT_2U_______
 #define _______NAV_RT_______ _______NAV_RT_2U_______, MO(_FUN)
 
 
-#define _____________________FUN_L1_5U______________________ RALT(KC_Q), RALT(KC_S), RALT(KC_Y), RALT(KC_P), KC_NO
+#define _____________________FUN_L1_5U______________________ RALT(KC_Q), RALT(KC_S), RALT(KC_Y), RALT(KC_P), MS_WHLU
 #define _____________________FUN_L1______________________ KC_NO, _____________________FUN_L1_5U______________________
 #if defined(RGB_MATRIX_ENABLE) || defined(RGBLIGHT_ENABLE)
-  #define _____________________FUN_L2_5U______________________ RGB_TOG, RGB_RMOD, RGB_MOD, KC_NO, QK_REBOOT
+  #define _____________________FUN_L2_5U______________________ RGB_TOG, RGB_RMOD, RGB_MOD, KC_NO, MS_WHLD
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #else
-  #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, QK_REBOOT
+  #define _____________________FUN_L2_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, MS_WHLD
   #define _____________________FUN_L2______________________ KC_NO, _____________________FUN_L2_5U______________________
 #endif
 #define _____________________FUN_L3_5U______________________ KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOTLOADER
 #define _____________________FUN_L3______________________ KC_NO, _____________________FUN_L3_5U______________________
 
-#define _____________________FUN_R1_5U______________________ KC_MUTE, KC_F7, KC_F8, KC_F9, KC_F12
-#define _____________________FUN_R2_5U______________________ QK_REBOOT, KC_F4, KC_F5, KC_F6, KC_F11
+#define _____________________FUN_R1_5U______________________ KC_VOLU, KC_F7, KC_F8, KC_F9, KC_F12
+#define _____________________FUN_R2_5U______________________ KC_VOLD, KC_F4, KC_F5, KC_F6, KC_F11
 #define _____________________FUN_R3_5U______________________ QK_BOOTLOADER, KC_F1, KC_F2, KC_F3, KC_F10
 #define _____________________FUN_R1______________________ _____________________FUN_R1_5U______________________, KC_NO
 #define _____________________FUN_R2______________________ _____________________FUN_R2_5U______________________, KC_NO
 #define _____________________FUN_R3______________________ _____________________FUN_R3_5U______________________, KC_NO
 
 #define _______FUN_LT_2U_______ QK_DYNAMIC_MACRO_RECORD_START_1, QK_DYNAMIC_MACRO_PLAY_1
-#define _______FUN_RT_2U_______ KC_VOLU, KC_TRNS
+#define _______FUN_RT_2U_______ KC_MUTE, KC_TRNS
 #define _______FUN_LT_______ QK_DYNAMIC_MACRO_RECORD_STOP, _______FUN_LT_2U_______
-#define _______FUN_RT_______ _______FUN_RT_2U_______, KC_VOLD
+#define _______FUN_RT_______ _______FUN_RT_2U_______, QK_REBOOT
 
 
 // Layout wrappers
