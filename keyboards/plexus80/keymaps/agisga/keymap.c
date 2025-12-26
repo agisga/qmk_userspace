@@ -10,7 +10,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-------------------------------------------------------------------------------------------------------------------------------.
      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                 KC_7,    KC_8,   KC_9,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,
      KC_DEL,   _____________________QWERTY_L1_5U______________________, KC_4,    KC_5,   KC_6,    _____________________QWERTY_R1_5U______________________, KC_LBRC, KC_RBRC,
-     CW_TOGG,  _____________________QWERTY_L2_5U______________________, KC_1,    KC_2,   KC_3,    _____________________QWERTY_R2_5U______________________, KC_QUOT,   KC_HOME,
+     CW_TOGG,  _____________________QWERTY_L2_5U______________________, KC_1,    KC_2,   KC_3,    _____________________QWERTY_R2_5U______________________, KC_SCLN,   KC_HOME,
      KC_GRV,   _____________________QWERTY_L3_5U______________________, KC_VOLD, KC_0,   KC_VOLU, _____________________QWERTY_R3_5U______________________, KC_UP,   KC_END,
      KC_ENT,   KC_NO,   KC_NO, KC_TAB,  _______QWERTY_LT_2U_______,     KC_NO,   KC_BTN1, KC_NO,  _______QWERTY_RT_2U_______,   KC_BSLS,  KC_NO,  KC_LEFT, KC_DOWN,   KC_RIGHT
   ),

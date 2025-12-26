@@ -395,30 +395,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case LSFT_T(KC_4):
+    case LSFT_T(KC_1):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_4)); // Send $ on tap
+            tap_code16(S(KC_1)); // Send ! on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
 
-    case LCTL_T(KC_5):
+    case LCTL_T(KC_2):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_5)); // Send % on tap
+            tap_code16(S(KC_2)); // Send @ on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
 
-    case LALT_T(KC_6):
+    case LALT_T(KC_3):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_6)); // Send ^ on tap
+            tap_code16(S(KC_3)); // Send # on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
 
     case LGUI_T(KC_8):
         if (record->tap.count && record->event.pressed) {
-            tap_code16(S(KC_8)); // Send ) on tap
+            tap_code16(S(KC_8)); // Send * on tap
             return false;        // Return false to ignore further processing of key
         }
         break;
